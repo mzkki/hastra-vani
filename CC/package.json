@@ -18,5 +18,20 @@
   "bugs": {
     "url": "https://github.com/mzkki/hastra-vani/issues"
   },
-  "homepage": "https://github.com/mzkki/hastra-vani#readme"
+  "homepage": "https://github.com/mzkki/hastra-vani#readme",
+  "dependencies": {
+    "@prisma/client": "^5.17.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.17.0"
+  }
 }
