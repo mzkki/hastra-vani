@@ -3,15 +3,15 @@ const swaggerUi = require('swagger-ui-express')
 
 const options = {
   swaggerDefinition: {
-    restapi: '1.0.0',
+    openapi: '3.0.3',
     info: {
-      title: 'My API',
+      title: 'Capstone API',
       version: '1.0.0',
-      description: 'My REST API',
+      description: 'API Service for Capstone Project',
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'http://localhost:3001',
       },
     ],
   },

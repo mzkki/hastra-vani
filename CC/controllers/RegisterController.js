@@ -26,11 +26,13 @@ const register = async (req, res) => {
       }
     })
 
+    const { password, ...userWithoutPassword } = user;
     res.status(201).send({
       success: true,
       message: 'Register successfully',
-      data: user
-    })
+      data: userWithoutPassword
+    });
+
   } catch (e) {
     res.status(500).send({
       success: false,

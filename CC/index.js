@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 // server port
-const port = 3000;
+const port = 3001;
 
 // route
 app.get('/', (req, res) => {
