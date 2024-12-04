@@ -1,21 +1,10 @@
-const { validationResult } = require('express-validator')
-
+const validateRequest = require('../utils/validators');
 const bcrypt = require('bcryptjs');
-
 const jwt = require('jsonwebtoken');
-
 const prisma = require('../prisma/client')
 
 const login = async (req, res, next) => {
-  const errors = validationResult(req)
-
-  if (!errors.isEmpty()) {
-    return res.status(422).json({
-      success: false,
-      message: 'Validation Error',
-      errors: errors.array()
-    })
-  }
+  if (!validateRequest(req, res)) return;
 
   try {
     const user = await prisma.user.findFirst({

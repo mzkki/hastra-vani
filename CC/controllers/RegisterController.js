@@ -1,19 +1,10 @@
-const { validationResult } = require('express-validator');
-
+const validateRequest = require('../utils/validators');
 const bcrypt = require('bcryptjs');
 
 const prisma = require('../prisma/client')
 
 const register = async (req, res, next) => {
-  const errors = validationResult(req);
-
-  if (!errors.isEmpty()) {
-    return res.status(422).json({
-      success: false,
-      message: 'Validation error',
-      errors: errors.array()
-    });
-  }
+  if (!validateRequest(req, res)) return;
 
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
