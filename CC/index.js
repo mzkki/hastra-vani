@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 // server port
-const port = 8080;
+const port = process.env.PORT || 3000;
 
 // route
 app.get('/', (req, res) => {
