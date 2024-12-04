@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const prisma = require('../prisma/client')
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
@@ -64,10 +64,7 @@ const login = async (req, res) => {
       }
     })
   } catch (e) {
-    res.status(500).send({
-      success: false,
-      message: "Internal server error",
-    })
+    next(e)
   }
 }
 

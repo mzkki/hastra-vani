@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const prisma = require('../prisma/client')
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -34,10 +34,7 @@ const register = async (req, res) => {
     });
 
   } catch (e) {
-    res.status(500).send({
-      success: false,
-      message: "Internal server error"
-    });
+    next(e);
   }
 }
 

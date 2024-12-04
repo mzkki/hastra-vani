@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const router = require('./routes');
 const swagger = require('./utils/swagger');
+const { notFoundHandler, errorHandler } = require('./utils/responseHandler');
 
 // initial express
 const app = express()
@@ -21,6 +22,10 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', router);
+
+app.use(notFoundHandler);
+app.use(errorHandler);
+
 
 swagger(app)
 
