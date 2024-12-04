@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'https://hastravani-api-693713901451.asia-southeast2.run.app',
       },
     ],
   },
