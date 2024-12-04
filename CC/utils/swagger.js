@@ -5,7 +5,7 @@ const options = {
   swaggerDefinition: {
     openapi: '3.0.3',
     info: {
-      title: 'Capstone API',
+      title: 'Hastra Vani API',
       version: '1.0.0',
       description: 'API Service for Capstone Project',
     },

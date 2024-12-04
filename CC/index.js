@@ -22,12 +22,12 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', router);
+swagger(app)
 
 app.use(notFoundHandler);
 app.use(errorHandler);
 
 
-swagger(app)
 
 // starting server
 app.listen(port, () => {
