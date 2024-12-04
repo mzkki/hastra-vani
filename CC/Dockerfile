@@ -1,19 +1,24 @@
-FROM node:20
+# Use the official Node.js 20 base image
+FROM node:20-slim
 
-#Set the working directory in the container
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-#Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-#Install app dependencies
+# Install application dependencies
 RUN npm install
 
-#Copy the rest of the application code to the working directory
+# Copy application code
 COPY . .
 
-#Expose the port your app runs on
-EXPOSE 8080
+EXPOSE 3000
 
-#Command to run your application
+# Install OpenSSL 1.1
+RUN apt-get update -y && apt-get install -y openssl
+
+RUN npx prisma generate
+
+# Set the command to start the server
 CMD ["npm", "start"]
